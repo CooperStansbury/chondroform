@@ -1,0 +1,16 @@
+sample_id,file_path
+bc1,/nfs/turbo/umms-indikar/shared/projects/RECODE/fastq_pass/bc1.fastq.gz
+bc2,/nfs/turbo/umms-indikar/shared/projects/RECODE/fastq_pass/bc2.fastq.gz
+bc3,/nfs/turbo/umms-indikar/shared/projects/RECODE/fastq_pass/bc3.fastq.gz
+bc4,/nfs/turbo/umms-indikar/shared/projects/RECODE/fastq_pass/bc4.fastq.gz
+bc5,/nfs/turbo/umms-indikar/shared/projects/RECODE/fastq_pass/bc5.fastq.gz
+bc6,/nfs/turbo/umms-indikar/shared/projects/RECODE/fastq_pass/bc6.fastq.gz
+bc7,/nfs/turbo/umms-indikar/shared/projects/RECODE/fastq_pass/bc7.fastq.gz
+bc8,/nfs/turbo/umms-indikar/shared/projects/RECODE/fastq_pass/bc8.fastq.gz
+bc9,/nfs/turbo/umms-indikar/shared/projects/RECODE/fastq_pass/bc9.fastq.gz
+bc10,/nfs/turbo/umms-indikar/shared/projects/RECODE/fastq_pass/bc10.fastq.gz
+bc11,/nfs/turbo/umms-indikar/shared/projects/RECODE/fastq_pass/bc11.fastq.gz
+bc12,/nfs/turbo/umms-indikar/shared/projects/RECODE/fastq_pass/bc12.fastq.gz
+bc13,/nfs/turbo/umms-indikar/shared/projects/RECODE/fastq_pass/bc13.fastq.gz
+bc14,/nfs/turbo/umms-indikar/shared/projects/RECODE/fastq_pass/bc14.fastq.gz
+bc15,/nfs/turbo/umms-indikar/shared/projects/RECODE/fastq_pass/bc15.fastq.gz

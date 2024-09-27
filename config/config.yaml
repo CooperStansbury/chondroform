@@ -1,0 +1,6 @@
+output_path: "/scratch/indikar_root/indikar1/shared_data/chondroform/pipeline_outputs/"
+inputs: "config/fastq_paths.txt"
+gtf_path: "/nfs/turbo/umms-indikar/shared/projects/RECODE/references/Homo_sapiens.GRCh38.111.gtf.gz"
+ref_path: "/nfs/turbo/umms-indikar/shared/projects/RECODE/references/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz"
+minimap2_args: "-ax splice -uf --secondary=no --MD" 
+threads: 36
