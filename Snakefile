@@ -51,15 +51,26 @@ rule all:
         OUTPUT + 'references/reference.fa',
         OUTPUT + 'references/reference.mmi',
         expand(OUTPUT + "mapping/{sid}.bam.bai", sid=samples),
+        expand(OUTPUT + "count_matrix/{sid}.counts.tsv", sid=samples),
      
 
 rule get_gtf:
     input:
         config['gtf_path']
     output:
-        OUTPUT + 'references/annotations.gtf',
+        OUTPUT + 'references/annotations.gtf.gz',
     shell:
         """cp {input} {output} """
+        
+        
+rule prep_annotations:
+    input:
+        refgenome=OUTPUT + 'references/annotations.gtf.gz',
+    output:
+        ref=OUTPUT + 'references/annotations.gtf',
+        flag=touch(OUTPUT + 'references/annotations.done')
+    shell:
+        "cat {input} | gzip -d > {output.ref}"
         
         
 rule get_reference:
@@ -149,18 +160,28 @@ rule samtools_index:
 
 
 
-rule htseq_count_individual:
+rule htseq_count:
     input:
-        bam=OUTPUT + 'mapping/{sid}.tagged.bam',
+        bam=OUTPUT + 'mapping/{sid}.bam',
         annotations=OUTPUT + 'references/annotations.gtf',
     output:
-        OUTPUT + "counts_matrices/{sid}.counts.txt"
-    conda:
-        "../envs/htseq_count.yml"
+        OUTPUT + "count_matrix/{sid}.counts.tsv"
     wildcard_constraints:
         sid='|'.join([re.escape(x) for x in set(samples)]),
+    conda:
+        "count_matrix"
+    params:
+        FEATURE_TYPE='gene',
+        IDATTR='gene_id',
+        ADDITIONAL_ATTRIBUTES='gene_name',
+    threads:
+        config['threads']
     shell:
-        "htseq-count {input.bam} {input.annotations} > {output}"
+        """htseq-count {input.bam}  {input.annotations} \
+        -t {params.FEATURE_TYPE} -i {params.IDATTR} \
+        --additional-attr {params.ADDITIONAL_ATTRIBUTES} \
+        --with-header -n  {threads} > {output}"""
+       
 
 
 
